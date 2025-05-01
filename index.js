@@ -63,9 +63,9 @@ app.post("/api/scores", async (req, res) => {
           await Score.deleteOne({ _id: topScores[2]._id }); // Elimina el puntaje más bajo
         }
   
-        res.status(200).send("Nuevo mejor puntaje!");
+        res.status(200).send("New Top!!!");
       } else {
-        res.status(200).send("El puntaje no es suficiente para estar en el top 3.");
+        res.status(200).send("Not Enough Points!.");
       }
     } catch (err) {
       console.log("Error procesando puntaje:", err);
