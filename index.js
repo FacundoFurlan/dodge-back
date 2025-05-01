@@ -2,7 +2,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-
+const cors = require("cors");
 // Cargar las variables de entorno desde el archivo .env
 dotenv.config();
 
