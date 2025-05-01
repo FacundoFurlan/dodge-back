@@ -11,6 +11,7 @@ const app = express();
 
 // Middleware para parsear el body de las peticiones como JSON
 app.use(express.json());
+app.use(cors());
 
 // Conectar a MongoDB
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
