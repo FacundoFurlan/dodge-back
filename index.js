@@ -19,10 +19,14 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
   .catch((err) => console.error("Error al conectar a MongoDB:", err));
 
 // Define el modelo para los puntajes
-const Score = mongoose.model("Score", new mongoose.Schema({
-    name: String,
-    score: Number,
-  }));
+const Score = mongoose.model(
+    "Score",
+    new mongoose.Schema({
+      name: String,
+      score: Number,
+    }),
+    "top" // 👈 Esto le dice a Mongoose que use la colección "top"
+  );
 
 // Ruta de prueba
 app.get("/", (req, res) => {
