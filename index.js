@@ -34,7 +34,7 @@ app.get("/api/scores", async (req, res) => {
     try {
       const topScores = await Score.find().sort({ score: -1 }).limit(3);
       console.log(topScores);
-      res.send("se encontro algo").status(200).json(topScores);
+      res.status(200).json(topScores);
     } catch (err) {
       res.status(500).send("Error al obtener puntajes.");
     }
