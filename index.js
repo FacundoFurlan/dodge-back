@@ -65,7 +65,7 @@ app.post("/api/scores", async (req, res) => {
   
         res.status(200).send("New Top!!!");
       } else {
-        res.status(200).send("Not Enough Points!.");
+        res.status(200).send("Not Enough Points!");
       }
     } catch (err) {
       console.log("Error procesando puntaje:", err);
