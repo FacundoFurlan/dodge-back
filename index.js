@@ -58,11 +58,6 @@ app.post("/api/scores", async (req, res) => {
         const newScore = new Score({ name, score });
         await newScore.save();
   
-        // Elimina el puntaje más bajo si ya tenemos 3 puntajes en la base de datos
-        if (topScores.length === 3) {
-          await Score.deleteOne({ _id: topScores[2]._id }); // Elimina el puntaje más bajo
-        }
-  
         res.status(200).send("New Top!!!");
       } else {
         res.status(200).send("Not Enough Points!");
