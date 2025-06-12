@@ -24,8 +24,9 @@ const Score = mongoose.model(
     new mongoose.Schema({
       name: String,
       score: Number,
+      lvl: Number
     }),
-    "top" // 👈 Esto le dice a Mongoose que use la colección "top"
+    "top" //Esto le dice a Mongoose que use la colección "top"
   );
 
 // Ruta de prueba
@@ -45,7 +46,7 @@ app.get("/api/scores", async (req, res) => {
   });
 // Ruta POST para agregar un nuevo puntaje
 app.post("/api/scores", async (req, res) => {
-    const { name, score } = req.body;
+    const { name, score, lvl } = req.body;
   
     try {
       // Obtiene los top 3 puntajes más altos
@@ -55,7 +56,7 @@ app.post("/api/scores", async (req, res) => {
       if (topScores.length < 3 || score > topScores[2].score) {
         // Si el puntaje es nuevo, o más alto que el puntaje más bajo de los top 3
         // Guardamos el nuevo puntaje
-        const newScore = new Score({ name, score });
+        const newScore = new Score({ name, score, lvl });
         await newScore.save();
   
         res.status(200).send("New Top!!!");
