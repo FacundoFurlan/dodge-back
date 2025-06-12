@@ -51,8 +51,10 @@ app.post("/api/scores", async (req, res) => {
     try {
       // Obtiene los top 3 puntajes más altos
       const topScores = await Score.find().sort({ score: -1 }).limit(3);
-      const newScore = new Score({ name, score, lvl });
-      await newScore.save();
+      if(score > 200){
+        const newScore = new Score({ name, score, lvl });
+        await newScore.save();
+      }
   
       if (topScores.length < 3 || score > topScores[2].score) {
         // Si el puntaje es nuevo, o más alto que el puntaje más bajo de los top 3
