@@ -25,6 +25,8 @@ const Score = mongoose.model(
       name: String,
       score: Number,
       lvl: Number
+    },{
+      timestamps:true
     }),
     "top" //Esto le dice a Mongoose que use la colección "top"
   );
