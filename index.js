@@ -39,7 +39,7 @@ app.get("/", (req, res) => {
 // Ruta para obtener las puntuaciones (por ejemplo)
 app.get("/api/scores", async (req, res) => {
     try {
-      const topScores = await Score.find().sort({ score: -1 }).limit(3);
+      const topScores = await Score.find().sort({ score: -1 }).limit(5);
       console.log(topScores);
       res.status(200).json(topScores);
     } catch (err) {
